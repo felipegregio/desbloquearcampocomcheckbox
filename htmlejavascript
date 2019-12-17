@@ -1,0 +1,24 @@
+HTML 
+
+<div class='col-2'>
+    <div class='form-label-group'>
+        <input type="text" class="form-control mr-1" data-id="creditosPendentes" disabled>
+        <label for="creditosPendentes">Cred. Pendentes</label>
+        <input type="checkbox" class="cb" data-id="creditosPendentes">Usar Créditos?</input>
+    </div>
+</div>
+
+JavaScript
+
+// funcionalidade checkbox e input
+
+var cbs = document.getElementsByClassName('cb');
+
+function cbClick() {
+    var input = document.querySelector('input[data-id="' + this.getAttribute('data-id') + '"]:not([type="checkbox"])');
+    input.disabled = !this.checked;
+}
+
+for(var i in cbs) {
+    cbs[i].onclick = cbClick;
+}
